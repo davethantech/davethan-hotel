@@ -12,6 +12,20 @@ import { loadFontsFromTailwindSource } from './plugins/loadFontsFromTailwindSour
 import { nextPublicProcessEnv } from './plugins/nextPublicProcessEnv';
 import { restart } from './plugins/restart';
 import { restartEnvFileChange } from './plugins/restartEnvFileChange';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  esbuild: {
+    target: 'esnext', // <-- allows top-level await
+  },
+});
+
+
+
+
+
 
 export default defineConfig({
   // Keep them available via import.meta.env.NEXT_PUBLIC_*
